@@ -60,13 +60,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void performAction(View view) {
                 MenuPopupView menuPopupView = new MenuPopupView(MainActivity.this, Content.LIST, new ArrayList<ListItem>() {{
-                    add(new ListItem(R.drawable.ic_danhaochaxun, "日期查询"));
-                    add(new ListItem(R.drawable.ic_danhaochaxun, "单号查询"));
-                    add(new ListItem(R.drawable.ic_danhaochaxun, "日期查询"));
-                    add(new ListItem(R.drawable.ic_danhaochaxun, "单号查询"));
-                    add(new ListItem(R.drawable.ic_danhaochaxun, "日期查询"));
+                    add(new ListItem(R.drawable.ic_danhaochaxun, "创建群聊"));
+                    add(new ListItem(R.drawable.ic_danhaochaxun, "加好友"));
+                    add(new ListItem(R.drawable.ic_danhaochaxun, "扫一扫"));
+                    add(new ListItem(R.drawable.ic_danhaochaxun, "面对面快传"));
+                    add(new ListItem(R.drawable.ic_danhaochaxun, "首付款"));
                     add(new ListItem(R.drawable.ic_danhaochaxun, "单号查询"));
                 }});
+                menuPopupView.setArrowLocation(Content.ARROW_RIGHT);
                 menuPopupView.showDown(view);
                 menuPopupView.setSelectItemListenner(new Content.OnSelectItemListenner() {
                     @Override

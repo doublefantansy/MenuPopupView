@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 import java.util.List;
@@ -46,9 +47,11 @@ public class MenuPopupView extends PopupWindow {
         setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss() {
+                WindowManager.LayoutParams lp = ((Activity) context).getWindow()
+                        .getAttributes();
+                lp.alpha = 1f; //0.0-1.0
                 ((Activity) context).getWindow()
-                        .getDecorView()
-                        .setAlpha(1f);
+                        .setAttributes(lp);
             }
         });
     }
@@ -58,9 +61,11 @@ public class MenuPopupView extends PopupWindow {
     }
 
     public void showDown(View view) {
+        WindowManager.LayoutParams lp = ((Activity) context).getWindow()
+                .getAttributes();
+        lp.alpha = 0.5f; //0.0-1.0
         ((Activity) context).getWindow()
-                .getDecorView()
-                .setAlpha(0.75f);
+                .setAttributes(lp);
         if (isShowing()) {
             dismiss();
         } else {

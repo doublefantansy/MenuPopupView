@@ -43,6 +43,14 @@ public class MenuPopupView extends PopupWindow {
         setFocusable(true);
         setBackgroundDrawable(null);
         setContentView(content);
+        setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                ((Activity) context).getWindow()
+                        .getDecorView()
+                        .setAlpha(1f);
+            }
+        });
     }
 
     public void setSelectItemListenner(Content.OnSelectItemListenner listenner) {
@@ -73,14 +81,6 @@ public class MenuPopupView extends PopupWindow {
                 }
             }
         }
-    }
-
-    @Override
-    public void dismiss() {
-        super.dismiss();
-        ((Activity) context).getWindow()
-                .getDecorView()
-                .setAlpha(1f);
     }
 
     interface CallBack {
